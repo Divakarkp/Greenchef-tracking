@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Generate Box Barcode</h2>
+<form method="post">
+    SKU: <input type="text" name="sku" required><br><br>
+    Product Name: <input type="text" name="product_name" required><br><br>
+    Items per Box: <input type="number" name="items_per_box" required><br><br>
+    <button type="submit">Generate Barcode</button>
+</form>
+
+{% if barcode_path %}
+<hr>
+<h3>Generated Barcode</h3>
+<img src="{{ barcode_path }}" alt="Barcode"><br>
+Box Code: <b>{{ box_code }}</b><br>
+<a href="{{ barcode_path }}" download>Download Barcode</a>
+{% endif %}
+{% endblock %}
